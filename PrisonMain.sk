@@ -1,0 +1,399 @@
+#=================================================================================================================================#
+#________________________________________________BEGINNING OF CONFIG SECTION______________________________________________________#
+
+options:
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#Permission Configurations#
+   #allows a guard to open an iron door with a rightclick of his fist#
+	Open-Irondoor: guard.irondoor
+
+   #Give these nodes to Guards so it will display them as On/Off Duty
+	Display-OnDuty: guard.online
+	Display-OffDuty: guard.offline
+
+   #Permissions to use the Guard Tools
+	Metal-Detector-Perm: guard.tools.checker
+	Pepper-Spray-Perm: guard.tools.pepperspray
+
+   #Perms for broadcasting who hit who messages
+	Hit-Player: guard.player
+   # ^ Give this one to players
+	Hit-Guard: guard.attacked
+   # ^ Give this one to guards
+
+   #Guard Supply Permissions L1-4
+	Base-Command: guard.supplies
+	Guard-L1: guard.supplies.1
+	Guard-L2: guard.supplies.2
+	Guard-L3: guard.supplies.3
+	Guard-L4: guard.supplies.4
+	Warden-Supply: guard.supplies.Warden
+	L1-CoolDown: 1
+	L2-CoolDown: 1
+	L3-CoolDown: 1
+	L4-CoolDown: 1
+	Warden-CoolDown: 1
+   #Rank-Up Part#
+	Rank1-Name: F
+	Rank1: <gold>[<white>F<gold>]
+   #Rank2 Config#
+	Rank2-Name: E
+	Rank2: <gold>[<yellow>E<gold>]
+	Rank2-Cost: 40000
+	Rank2-Promo-Message: <yellow>Congratulations! You've Been Sentenced to the<green> E <yellow>Cell Block. 
+	Rank2-Denied-Message: <light red>Sorry you don't have enough cigarettes yet for this rank.
+   #Rank3 Config#
+	Rank3-Name: D
+	Rank3: <gold>[<pink>D<gold>]
+	Rank3-Cost: 80000
+	Rank3-Promo-Message: <yellow>Congratulations! You've Been Sentenced to the<green> D <yellow>Cell Block. 
+	Rank3-Denied-Message: <light red>Sorry you don't have enough cigarettes yet for this rank.
+   #Rank4 Config#
+	Rank4-Name: C
+	Rank4: <gold>[<light red>C<gold>]
+	Rank4-Cost: 1200000
+	Rank4-Promo-Message: <yellow>Congratulations! You've Been Sentenced to the<green> C <yellow>Cell Block. 
+	Rank4-Denied-Message: <light red>Sorry you don't have enough cigarettes yet for this rank.
+   #Rank5 Config#
+	Rank5-Name: B
+	Rank5: <gold>[<aqua>B<gold>]
+	Rank5-Cost: 1600000
+	Rank5-Promo-Message: <yellow>Congratulations! You've Been Sentenced to the<green> B <yellow>Cell Block. 
+	Rank5-Denied-Message: <light red>Sorry you don't have enough cigarettes yet for this rank.
+   #Rank6 Config#
+	Rank6-Name: A
+	Rank6: <gold>[<light green>A<gold>]
+	Rank6-Cost: 200000
+	Rank6-Promo-Message: <yellow>Congratulations! You've Been Sentenced to the<green> A <yellow>Cell Block. 
+	Rank6-Denied-Message: <light red>Sorry you don't have enough cigarettes yet for this rank.
+   #Give the next permission to guards
+	This-Is-A-Guard: guard.guard
+	
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#Configurable Messages!#
+   #If using PrisonChat i suggest using this welcome message and disableing the essentials one#
+	Configurable-Welcome-Message: Welcome to the server %player%
+
+   #When a player is killed, this broadcasts#
+	Kill-Message: %attacker% <green>Has Killed %victim%
+
+   #On/Off Duty Messages#
+	On-Duty-Message: <yellow>%player% <white>is now <green>On-Duty!
+	Off-Duty-Message: <yellow>%player% <white>is now <red>Off-Duty!
+
+   #When a player damages a guard (sent to player)
+	Guard-Damage-1: <red>You've Hit a Guard! <yellow>RUUUUUNNNN!!!!
+   #When a player damages a guard (sent to guard)
+	Guard-Damage-2: %attacker% <red>Hit You! <green>Jail him NOW!!
+   #When a guard damages a player (sent to player)
+	Player-Damage: %attacker% <red>is after you! <yellow>RUN!!
+
+   #Message Displayed when no Guards are online
+	No-Guards: No Guards currently on-duty! Don't play with swords :D ;)!
+	
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#Define What items are to be used as the tools#
+
+	tool-MetalDetector: blaze rod
+	tool-PepperSpray: redstone torch
+	tool-NightStick: stick
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++L1 SUPPLIES+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#Guard Supplies Config#
+#Guard L1 Supplies:
+	L1-Chestplate: leather chestplate
+	L1-Leggings: leather leggings
+	L1-Boots: leather boots
+	L1-Helmet: leather helmet
+	L1-Sword: wooden sword
+	L1-FoodItem: steak
+#Item Names of Guard Supplies 1#
+	L1-Name_Of_Chestplate: &dProtective Chestplate
+	L1-Name_Of_Leggings: &dProtective Leggings
+	L1-Name_Of_Boots: &dProtective Boots
+	L1-Name_Of_Helmet: &dProtective Helmet
+	L1-Name_Of_Sword: &cWooden Shank
+	L1-Name_Of_Food: Steak
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++L2 SUPPLIES+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#Guard L2 Supplies:
+	L2-Chestplate: chain chestplate
+	L2-Leggings: chain leggings
+	L2-Boots: chain boots
+	L2-Helmet: chain helmet
+	L2-Sword: stone sword
+	L2-FoodItem: Steak
+#Item Names of Guard Supplies 2#
+	L2-Name_Of_Chestplate: &dRiot Chestplate
+	L2-Name_Of_Leggings: &dRiot Leggings
+	L2-Name_Of_Boots: &dRiot Boots
+	L2-Name_Of_Helmet: &dRiot Helmet
+	L2-Name_Of_Sword: &cTactical Knife
+	L2-Name_Of_Food: Steak
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++L3 SUPPLIES+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#Guard L3 Supplies:
+	L3-Chestplate: iron chestplate
+	L3-Leggings: iron leggings
+	L3-Boots: iron boots
+	L3-Helmet: iron helmet
+	L3-Sword: iron sword
+	L3-FoodItem: steak
+#Item Names of Guard Supplies 3#
+	L3-Name_Of_Chestplate: &dMSWAT Chestplate
+	L3-Name_Of_Leggings: &dMSWAT Leggings
+	L3-Name_Of_Boots: &dMSWAT Boots
+	L3-Name_Of_Helmet: &dMSWAT Helmet
+	L3-Name_Of_Sword: &cJustice Bringer
+	L3-Name_Of_Food: Steak
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++L4 SUPPLIES+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#Guard L4 Supplies:
+	L4-Chestplate: diamond chestplate
+	L4-Leggings: diamond leggings
+	L4-Boots: diamond boots
+	L4-Helmet: diamond helmet
+	L4-Sword: diamond sword
+	L4-FoodItem: steak
+#Item Names of Guard Supplies 4#
+	L4-Name_Of_Chestplate: &dMilitary Grade Chestplate
+	L4-Name_Of_Leggings: &dMilitary Grade Leggings
+	L4-Name_Of_Boots: &dMilitary Grade Boots
+	L4-Name_Of_Helmet: &dMilitary Grade Helmet
+	L4-Name_Of_Sword: &cSpanking Device
+	L4-Name_Of_Food: Steak
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Warden SUPPLIES+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#Warden Supplies:
+	Warden-Chestplate: leather chestplate
+	Warden-Leggings: leather leggings
+	Warden-Boots: leather boots
+	Warden-Helmet: leather helmet
+	Warden-Sword: wooden sword
+	Warden-FoodItem: steak
+#Item Names of Warden's Supplies#
+	Warden-Name_Of_Chestplate: &dWarden's Chestplate
+	Warden-Name_Of_Leggings: &dWarden's Leggings
+	Warden-Name_Of_Boots: &dWarden's Boots
+	Warden-Name_Of_Helmet: &dWarden's Helmet
+	Warden-Name_Of_Sword: &cOwning Machine
+	Warden-Name_Of_Food: Steak
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#To be completely honest, the rest of the skript is labeled quite nicely so i don't think you should have any problem editing#
+#any code beyond the config section. I mearly put a config section here so that people had an easier time editing what they want.#
+ 
+#__________________________________________________END OF CONFIG SECTION_________________________________________________________#
+#================================================================================================================================#
+
+#First join Rank#
+variables:
+	{rank.%player%.track} = 1
+
+on first join:
+	set player's display name to "{@Rank1} <reset>%player%"
+	execute console command "/pex user %player% group set {@Rank1-Name}"
+#Death Message#
+on death:
+	attacker is a player
+	victim is a player
+	broadcast "{@Kill-Message}"
+
+#Guard On/Off Duty messages#
+on join:
+	player has permission "{@Display-OnDuty}"
+	broadcast "{@On-Duty-Message}"
+	
+on join:
+	send "{@Configurable-Welcome-Message}" to player
+
+on quit:
+	player has permission "{@Display-OffDuty}"
+	broadcast "{@Off-Duty-Message}"
+
+#Extra Guard Abilities#
+on right click:
+	the clicked block is an iron door
+	player has permission "{@Open-Irondoor}"
+	toggle the block
+
+#Guard Tools#
+on right click on an entity holding a {@tool-MetalDetector}:
+	player has permission "{@Metal-Detector-Perm}"
+	open the entity's inventory to the player
+
+on right click on an entity holding a {@tool-PepperSpray}:
+	player has permission "{@Pepper-Spray-Perm}"
+	apply blindness to the entity for 20 seconds
+
+#Guard and Player notifications#
+on damage:
+	victim is a player
+	attacker is a player
+	victim has permission "{@Hit-Guard}"
+	attacker has permission "{@Hit-Player}"
+	wait 1 tick
+	send "{@Guard-Damage-1}" to attacker
+	send "{@Guard-Damage-2}" to victim
+
+on damage:
+	victim is a player
+	attacker is a player
+	attacker has permission "{@Hit-Guard}"
+	victim has permission "{@Hit-Player}"
+	send "{@Player-Damage}" to victim
+
+# Commands Start Here #
+variables:
+	{money.%player%} = 0
+command /points:
+	trigger:
+		send "<red>You have<green> %{money.%player%}%" to player
+command /givepoint:
+	trigger:
+		add 40000 to {money.%player%}
+command /reset:
+	trigger:
+		set {rank.%player%.track} to 1
+command /rankup:
+	trigger:
+		if {rank.%player%.track} = 1:
+			if {money.%player%} is greater than or equal to {@Rank2-Cost}:
+				set {rank.%player%.track} to 2
+				set player's display name to "{@Rank2} <reset>%player%"
+				send "{@Rank2-Promo-Message}" to player
+				remove {@Rank2-Cost} from {money.%player%}
+				execute console command "/pex user %player% group set {@Rank2-Name}"
+				stop
+			else:
+				send "{@Rank2-Denied-Message}"
+		if {rank.%player%.track} = 2:
+			if {money.%player%} is greater than or equal to {@Rank3-Cost}:
+				set {rank.%player%.track} to 3
+				set player's display name to "{@Rank3} <reset>%player%"	
+				send "{@Rank3-Promo-Message}" to player
+				remove {@Rank3-Cost} from {money.%player%}
+				execute console command "/pex user %player% group set {@Rank3-Name}"
+				stop
+			else:
+				send "{@Rank3-Denied-Message}"
+		if {rank.%player%.track} = 3:
+			if {money.%player%} is greater than or equal to {@Rank4-Cost}:
+				set {rank.%player%.track} to 4
+				set player's display name to "{@Rank4} <reset>%player%"
+				send "{@Rank4-Promo-Message}" to player
+				remove {@Rank4-Cost} from {money.%player%}
+				execute console command "/pex user %player% group set {@Rank4-Name}"
+				stop
+			else:
+				send "{@Rank4-Denied-Message}"
+		if {rank.%player%.track} = 4:
+			if {money.%player%} is greater than or equal to {@Rank5-Cost}:
+				set {rank.%player%.track} to 5
+				set player's display name to "{@Rank5} <reset>%player%"
+				send "{@Rank5-Promo-Message}" to player
+				remove {@Rank5-Cost} from {money.%player%}
+				execute console command "/pex user %player% group set {@Rank5-Name}"
+				stop
+			else:
+				send "{@Rank5-Denied-Message}"
+		if {rank.%player%.track} = 5:
+			if {money.%player%} is greater than or equal to {@Rank6-Cost}:
+				set {rank.%player%.track} to 6
+				set player's display name to "{@Rank6} <reset>%player%"
+				send "{@Rank6-Promo-Message}" to player
+				remove {@Rank6-Cost} from {money.%player%}
+				execute console command "/pex user %player% group set {@Rank6-Name}"
+				stop
+			else:
+				send "{@Rank6-Denied-Message}"
+
+command /supplies <text>:
+	description: gives guards a kit of supplies
+	usage: /supplies <L1, L2, L3, L4, Warden>
+	permission: {@Base-Command}
+	permission message: You're not a Guard, Don't even try
+	executable by: players
+	trigger:
+		if argument 1 = "l1":
+			set {L1-Time} to difference between {L1.%player%.lastused} and now
+			if {L1-Time} is less than {@L1-CoolDown} minutes:
+				message "You have to wait %difference between {@L1-CoolDown} and {L1-Time}% before you can use this command again!"
+				stop
+			player has permission "{@Guard-L1}"
+			add 1 {@L1-Sword} of sharpness 5 named "{@L1-Name_Of_Sword}" to player
+			equip player with 1 {@L1-Chestplate} of protection 128 named "{@L1-Name_Of_Chestplate}"
+			equip player with 1 {@L1-Helmet} of protection 128 named "{@L1-Name_Of_Helmet}"
+			equip player with 1 {@L1-Boots} of protection 128 named "{@L1-Name_Of_Boots}"
+			equip player with 1 {@L1-Leggings} of protection 128 named "{@L1-Name_Of_Leggings}"
+			add 64 {@L1-FoodItem} named "{@L1-Name_Of_Food}" to player
+			set {L1.%player%.lastused} to now
+		if argument 1 = "l2":
+			player has permission "{@Guard-L2}"
+			set {L2-Time} to difference between {L2.%player%.lastused} and now
+			if {L2-Time} is less than {@L2-CoolDown} minutes:
+				message "You have to wait %difference between {@L2-CoolDown} and {L2-Time}% before you can use this command again!"
+				stop
+			add 1 {@L2-Sword} of sharpness 5 named "{@L2-Name_Of_Sword}" to player
+			equip player with 1 {@L2-Chestplate} of protection 128 named "{@L2-Name_Of_Chestplate}"
+			equip player with 1 {@L2-Helmet} of protection 128 named "{@L2-Name_Of_Helmet}"
+			equip player with 1 {@L2-Boots} of protection 128 named "{@L2-Name_Of_Boots}"
+			equip player with 1 {@L2-Leggings} of protection 128 named "{@L2-Name_Of_Leggings}"
+			add 1 {@tool-NightStick} of knockback 2 named "Night Stick" to player
+			add 64 {@L2-FoodItem} named "{L2-Name_Of_Food)" to player
+			set {L2.%player%.lastused} to now
+		if argument 1 = "l3":
+			player has permission "{@Guard-L3}"
+			set {L3-Time} to difference between {L3.%player%.lastused} and now
+			if {L3-Time} is less than {@L3-CoolDown} minutes:
+				message "You have to wait %difference between {@L3-CoolDown} and {L3-Time}% before you can use this command again!"
+				stop
+			add 1 {@L3-Sword} of sharpness 5 named "{@L3-Name_Of_Sword}" to player
+			equip player with 1 {@L3-Chestplate} of protection 128 named "{@L3-Name_Of_Chestplate}"
+			equip player with 1 {@L3-Helmet} of protection 128 named "{@L3-Name_Of_Helmet}"
+			equip player with 1 {@L3-Boots} of protection 128 named "{@L3-Name_Of_Boots}"
+			equip player with 1 {@L3-Leggings} of protection 128 named "{@L3-Name_Of_Leggings}"
+			add 1 {@tool-MetalDetector} named "Metal Detector" to player
+			add 1 {@tool-NightStick} of knockback 2 named "Night Stick" to player
+			add 64 {@L3-FoodItem} to player
+			set {L3.%player%.lastused} to now
+		if argument 1 = "l4":
+			player has permission "{@Guard-L4}"
+			set {L4-Time} to difference between {L4.%player%.lastused} and now
+			if {L4-Time} is less than {@L4-CoolDown} minutes:
+				message "You have to wait %difference between {@L4-CoolDown} and {L4-Time}% before you can use this command again!"
+				stop
+			add 1 {@L4-Sword} of sharpness 5 named "{@L4-Name_Of_Sword}" to player
+			equip player with 1 {@L4-Chestplate} of protection 128 named "{@L4-Name_Of_Chestplate}"
+			equip player with 1 {@L4-Helmet} of protection 128 named "{@L4-Name_Of_Helmet}"
+			equip player with 1 {@L4-Boots} of protection 128 named "{@L4-Name_Of_Boots}"
+			equip player with 1 {@L4-Leggings} of protection 128 named "{@L4-Name_Of_Leggings}"
+			add 1 {@tool-PepperSpray} named "Pepper Spray" to player
+			add 1 {@tool-MetalDetector} named "Metal Detector" to player
+			add 1 {@tool-NightStick} of knockback 2 named "Night Stick" to player
+			add 64 {@L4-FoodItem} to player
+			set {L4.%player%.lastused} to now
+		if argument 1 = "Warden":
+			player has permission "{@Warden-Supply}"
+			set {Warden-Time} to difference between {Warden.%player%.lastused} and now
+			if {Warden-Time} is less than {@Warden-CoolDown} minutes:
+				message "You have to wait %difference between {@Warden-CoolDown} and {Warden-Time}% before you can use this command again!"
+				stop
+			add 1 {@Warden-Sword} of sharpness 5 named "{@Warden-Name_Of_Sword}" to player
+			equip player with 1 {@Warden-Chestplate} of protection 128 named "{@Warden-Name_Of_Chestplate}"
+			equip player with 1 {@Warden-Helmet} of protection 128 named "{@Warden-Name_Of_Helmet}"
+			equip player with 1 {@Warden-Boots} of protection 128 named "{@Warden-Name_Of_Boots}"
+			equip player with 1 {@Warden-Leggings} of protection 128 named "{@Warden-Name_Of_Leggings}"
+			add 1 {@tool-PepperSpray} named "Pepper Spray" to player
+			add 1 {@tool-MetalDetector} named "Metal Detector" to player
+			add 1 {@tool-NightStick} of knockback 2 named "Night Stick" to player
+			add 64 {@Warden-FoodItem} to player
+			set {Warden.%player%.lastused} to now
+
+command /guards:
+	description: Shows online Guards
+	trigger:
+		clear {online guards::*}
+		loop all players:
+			loop-player has permission "{@This-Is-A-Guard}"
+			add loop-player to {online guards::*}
+ 
+		size of {online guards::*} is 0:
+			message "{@No-Guards}"
+		else:
+			message "<yellow>Guards On-Duty:<white> %{online guards::*}%"
