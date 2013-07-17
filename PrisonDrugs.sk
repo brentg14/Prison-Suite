@@ -1,0 +1,221 @@
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+options:
+#Drugs Config#
+# ###### Positives ######
+#	{1} = speed
+#	{13} = night vision
+#	{3} = haste
+#	{5} = strength
+#	{6} = jump
+#	{11} = water breathing
+#	{8} = regeneration
+#	{9} = resistance
+#	{10} = fire resistance
+# ###### Negatives ######
+#	{4} = mining fatigue
+#	{12} = blindness
+#	{14} = hunger
+#	{7} = nausea
+#	{15} = weakness
+#	{16} = poison
+#	{17} = wither
+#	{2} = slowness
+#Names Of Drugs#
+
+	Vodka: water bottle
+	Vodka-Positive-Effect: {1}
+	Vodka-Negative-Effect: {7}
+	Vodka-Positive-Effect-Chance: 50
+	Vodka-Negative-Effect-Chance: 50
+	Vodka-Positive-Message: <red>Thats some Good Shit!
+	Vodka-Negative-Message: <cyan>AH Hell..I dont feel so goo..*Pukes*
+	Vodka-Custom-Name: <green>Vodka
+	Vodka-Effect-Length: 20
+#End Of Vodka Config#
+
+	Shrooms: red mushroom
+	Shrooms-Positive-Effect: {2}
+	Shrooms-Negative-Effect: {7}
+	Shrooms-Positive-Effect-Chance: 50
+	Shrooms-Negative-Effect-Chance: 50
+	Shrooms-Positive-Message: <red>Thats some Good Shit!
+	Shrooms-Negative-Message: <cyan>AH Hell..I dont feel so goo..*Pukes*
+	Shrooms-Custom-Name: <green>Shrooms
+	Shrooms-Effect-Length: 10
+#End Of Shrooms Config#
+
+	Crack: sugar
+	Crack-Positive-Effect: {1}
+	Crack-Negative-Effect: {2}
+	Crack-Positive-Effect-Chance: 50
+	Crack-Negative-Effect-Chance: 50
+	Crack-Positive-Message: <red>Thats some Good Shit!
+	Crack-Negative-Message: <cyan>AH Hell..I dont feel so goo..*Pukes*
+	Crack-Custom-Name: <green>Crack
+	Crack-Effect-Length: 20
+#End Of Crack Config#
+
+	Marijuana: cactus green dye
+	Marijuana-Positive-Effect: {1}
+	Marijuana-Negative-Effect: {7}
+	Marijuana-Positive-Effect-Chance: 50
+	Marijuana-Negative-Effect-Chance: 50
+	Marijuana-Positive-Message: <red>Thats some Good Shit!
+	Marijuana-Negative-Message: <cyan>AH Hell..I dont feel so goo..*Pukes*
+	Marijuana-Custom-Name: <green>Marijuana
+	Marijuana-Effect-Length: 10
+#End Of Marijuana Config#
+
+	Acid: gunpowder
+	Acid-Positive-Effect: {1}
+	Acid-Negative-Effect: {7}
+	Acid-Positive-Effect-Chance: 50
+	Acid-Negative-Effect-Chance: 50
+	Acid-Positive-Message: <red>Thats some Good Shit!
+	Acid-Negative-Message: <cyan>AH Hell..I dont feel so goo..*Pukes*
+	Acid-Custom-Name: <green>Acid
+	Acid-Effect-Length: 20
+#End Of Acid Config#
+
+	Crystal_Meth: bonemeal
+	Crystal_Meth-Positive-Effect: {1}
+	Crystal_Meth-Negative-Effect: {7}
+	Crystal_Meth-Positive-Effect-Chance: 50
+	Crystal_Meth-Negative-Effect-Chance: 50
+	Crystal_Meth-Positive-Message: <red>Thats some Good Shit!
+	Crystal_Meth-Negative-Message: <cyan>AH Hell..I dont feel so goo..*Pukes*
+	Crystal_Meth-Custom-Name: <green>Crystal Meth
+	Crystal_Meth-Effect-Length: 10
+#End Of Crystal_Meth Config#
+
+	Heroin: paper
+	Heroin-Positive-Effect: {1}
+	Heroin-Negative-Effect: {7}
+	Heroin-Positive-Effect-Chance: 50
+	Heroin-Negative-Effect-Chance: 50
+	Heroin-Positive-Message: <red>Thats some Good Shit!
+	Heroin-Negative-Message: <cyan>AH Hell..I dont feel so goo..*Pukes*
+	Heroin-Custom-Name: <green>Heroin
+	Heroin-Effect-Length: 20
+#End Of Heroin Config#
+#Drug Defining#
+variables:
+	{1} = speed
+	{2} = slowness
+	{3} = haste
+	{4} = mining fatigue
+	{5} = strength
+	{6} = jump
+	{7} = nausea
+	{8} = regeneration
+	{9} = resistance
+	{10} = fire resistance
+	{11} = water breathing
+	{12} = blindness
+	{13} = night vision
+	{14} = hunger
+	{15} = weakness
+	{16} = poison
+	{17} = wither
+
+on right click holding {@Crack}:
+	remove 1 {@Crack} from the player
+	chance of {@Crack-Positive-Effect-Chance}%:
+		apply {@Crack-Positive-Effect} 2 to the player for {@Crack-Effect-Length} seconds
+		send "{@Crack-Positive-Message}" to player
+		stop
+	chance of {@Crack-Negative-Effect-Chance}%:
+		apply {@Crack-Negative-Effect} 5 to the player for {@Crack-Effect-Length} seconds
+		send "{@Crack-Negative-Message}" to player
+		stop
+
+
+on right click with {@Marijuana}:
+	remove 1 {@Marijuana} from the player
+	chance of {@Marijuana-Positive-Effect-Chance}%:
+		apply {@Marijuana-Positive-Effect} 2 to the player for {@Marijuana-Effect-Length} seconds
+		send "{@Marijuana-Positive-Message}" to player
+		stop
+	chance of {@Marijuana-Negative-Effect-Chance}%:
+		apply {@Marijuana-Negative-Effect} 5 to the player for {@Marijuana-Effect-Length} seconds
+		send "{@Marijuana-Negative-Message}" to player
+		stop
+
+
+on right click with {@Shrooms}:
+	remove 1 {@Shrooms} from the player
+	chance of {@Shrooms-Positive-Effect-Chance}%:
+		apply {@Shrooms-Positive-Effect} 2 to the player for {@Shrooms-Effect-Length} seconds
+		send "{@Shrooms-Positive-Message}" to player
+		stop
+	chance of {@Shrooms-Negative-Effect-Chance}%:
+		apply {@Shrooms-Negative-Effect} 5 to the player for {@Shrooms-Effect-Length} seconds
+		send "{@Shrooms-Negative-Message}" to player
+		stop
+
+
+on right click with {@Vodka}:
+	remove 1 {@Vodka} from the player
+	chance of {@Vodka-Positive-Effect-Chance}%:
+		apply {@Vodka-Positive-Effect} 2 to the player for {@Vodka-Effect-Length} seconds
+		send "{@Vodka-Positive-Message}" to player
+		stop
+	chance of {@Vodka-Negative-Effect-Chance}%:
+		apply {@Vodka-Negative-Effect} 5 to the player for {@Vodka-Effect-Length} seconds
+		send "{@Vodka-Negative-Message}" to player
+		stop
+
+
+on right click with {@Acid}:
+	remove 1 {@Acid} from the player
+	chance of {@Acid-Positive-Effect-Chance}%:
+		apply {@Acid-Positive-Effect} 2 to the player for {@Acid-Effect-Length} seconds
+		send "{@Acid-Positive-Message}" to player
+		stop
+	chance of {@Acid-Negative-Effect-Chance}%:
+		apply {@Acid-Negative-Effect} 5 to the player for {@Acid-Effect-Length} seconds
+		send "{@Acid-Negative-Message}" to player
+		stop
+
+
+on right click with {@Crystal_Meth}:
+	remove 1 {@Crystal_Meth} from the player
+	chance of {@Crystal_Meth-Positive-Effect-Chance}%:
+		apply {@Crystal_Meth-Positive-Effect} 2 to the player for {@Crystal_Meth-Effect-Length} seconds
+		send "{@Crystal_Meth-Positive-Message}" to player
+		stop
+	chance of {@Crystal_Meth-Negative-Effect-Chance}%:
+		apply {@Crystal_Meth-Negative-Effect} 5 to the player for {@Crystal_Meth-Effect-Length} seconds
+		send "{@Crystal_Meth-Negative-Message}" to player
+		stop
+
+
+on right click with {@Heroin}:
+	remove 1 {@Heroin} from the player
+	chance of {@Heroin-Positive-Effect-Chance}%:
+		apply {@Heroin-Positive-Effect} 2 to the player for {@Heroin-Effect-Length} seconds
+		send "{@Heroin-Positive-Message}" to player
+		stop
+	chance of {@Heroin-Negative-Effect-Chance}%:
+		apply {@Heroin-Negative-Effect} 5 to the player for {@Heroin-Effect-Length} seconds
+		send "{@Heroin-Negative-Message}" to player
+		stop
+
+
+#Drug Naming:
+
+on tool change:
+	if player is holding {@Crack}:
+		set name of player's tool to "{@Crack-Custom-Name}"
+	if player is holding {@Marijuana}:
+		set name of player's tool to "{@Marijuana-Custom-Name}"
+	if player is holding {@Shrooms}:
+		set name of player's tool to "{@Shrooms-Custom-Name}"
+	if player is holding {@Vodka}:
+		set name of player's tool to "{@Vodka-Custom-Name}"
+	if player is holding {@Crystal_Meth}:
+		set name of player's tool to "{@Crystal_Meth-Custom-Name}"
+	if player is holding {@Acid}:
+		set name of player's tool to "{@Acid-Custom-Name}"
+	if player is holding {@Heroin}:
+		set name of player's tool to "{@Heroin-Custom-Name}"

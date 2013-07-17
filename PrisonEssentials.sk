@@ -1,0 +1,153 @@
+options:
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+#*** Essentials Replacement Commands ***#
+command /setwarp <text>:
+	permission: {@SetWarp-Permission}
+	trigger:
+		set {Prison.Warp.%argument 1%.Location} to location of the player
+		message "{@Warp-Create-Message}"
+		add argument 1 to {warplist::*}
+
+command /delwarp <text>:
+	permission: {@DelWarp-Permission}
+	trigger:
+		delete {Prison.Warp.%argument 1%.Location}
+		message "{@Warp-Remove-Message}"
+		remove argument 1 from {warplist::*}
+
+command /warp [<text = "list">]:
+	permission: {@View-Warp-Permission}
+	trigger:
+		if argument 1 is "list":
+			message "&6Warps;&f %{warplist::*}%"
+		if argument 1 isn't "list":
+			if {skentials.warp.%argument 1%.location} is set:
+				teleport player to {skentials.warp.%argument 1%.location}
+			else:
+				message "{@WarpUnknown-Message}"
+
+command /gm <integer> [<player = %player%>]:
+	permission: {@Gamemode-Change-Permission}
+	trigger:
+		if argument 2 is "%player%":
+			if argument 1 is 1:
+				set the gamemode of the player to creative
+			if argument 1 is 0:
+				set the gamemode of the player to survival
+			if argument 1 is 2:
+				set the gamemode of the player to adventure
+		else:
+			player has permission "{@Gamemode-Others-Permission}":
+				if argument 1 is 1:
+					set the gamemode of argument 2 to creative
+				if argument 1 is 0:
+					set the gamemode of argument 2 to survival
+				if argument 1 is 2:
+					set the gamemode of argument 2 to adventure
+command /list:
+	permission: {@List-Permmission}
+	trigger:
+		message "{@Player-Amount-Message}"
+		message "{@Player-List-Message}"
+
+command /time [<text = "">] [<text = "">]:
+	permission: {@timeperm}
+	trigger:
+		if argument 1 is "day":
+			if argument 2 is "":
+				set time to 7:00
+				broadcast "{@Time-Day-Message}"
+		if argument 1 is "night":
+			if argument 2 is "":
+				set time to 19:00
+				broadcast "{@Time-Night-Message}"
+		if argument 1 is "midnight":
+			if argument 2 is "":
+				set time to 23:59
+				broadcast "{@Time-Midnight-Message}"
+		if argument 1 is "":
+			message "&6The time right now is &c%time of world%"
+command /clearinventory [<player>]:
+	permission: {@clearinventoryperm}
+	aliases: ci
+	trigger:
+		if argument 1 isn't "":
+			player has permission "{@Clear-Others-Inventory-Permission}":
+				clear the inventory of argument 1
+				message "{@CI-Message}" to argument 1
+		else:
+			clear the inventory of the player
+			message "{@CI-Message}"
+command /i <item> [<integer>]:
+	description: Spawn a item
+	aliases: item, items, give, get
+	usage: /i [item] (amount)
+	permission: utilities.item
+	trigger:
+		if argument 2 is not set:
+			give argument 1 to player
+			stop
+		loop argument 2 times:
+			give argument 1 to player
+		message "{@givemessage}"
+command /tp <player> [<player>]:
+	permission: {@tpperm}, {@adminperm}
+	trigger:
+		if argument 2 is "":
+			teleport player to argument 1
+			message "{@tpmessage}"
+		if argument 2 isn't "":
+			teleport argument 1 to argument 2
+			message "{@tpmessage}" to argument 1
+
+command /tphere <player>:
+	permission: {@tphereperm}
+	aliases: s
+	trigger:
+		teleport argument 1 to the player
+		message "{@tpheremessage}" to argument 1
+	
+command /invsee <player>:
+	permission: {@Invsee-Permission}
+	trigger:
+		open the argument 1's inventory for the player
+variables:
+	{Custom-Ban-Message} = 0
+
+command /ban <player> <text>:
+	permission: {@Permission-To-Ban}
+	trigger:
+		set {Custom-Ban-Message} to argument 2
+		if argument 1 has permission "{@Ban-Exempt-Permission}":
+			message "&cYou can not ban that person"
+			stop
+		if argument 1 doesn't have permission "{@Ban-Exempt-Permission}":
+			if argument 2 is "":
+				broadcast "{@Ban-Message}"
+				ban argument 1
+				stop
+			if argument 2 isn't "":
+				broadcast "argument 2 <red>has been banned for (Custom-Ban-Message}"
+				ban argument 1
+				stop
+
+command /unban <offline player>:
+	permission: {@Permission-To-Unban}
+	trigger:
+		unban argument 1
+		broadcast "{@Unban-Message}"
+command /kick <player>:
+	permission: {@Permission-To-Kick}
+	trigger:
+		broadcast "{@Kick-Message}"
+		kick argument 1
