@@ -20,6 +20,7 @@ options:
 	Stone-XP-Display: 0.5
 	Emerald-XP: 0.15
 	Emerald-XP-Display: 15
+	OrePlacePermission: prison.ore.place
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #Mining Rewards and Scoreboard Start Here#
@@ -51,60 +52,60 @@ command /mined:
 		message "----------------------------------------------"
 
 command /verbose <text>:
-    executable by: players
+	executable by: players
 	usage: /verbose <on/off>
 	description: Turns Xp Gain Messages On/Off
-    trigger:
-		if argument 1 = on:
+	trigger:
+		if argument 1 = "on":
 			set {verbose.%player%} to true
-		if argument 1 = off:
+		if argument 1 = "off":
 			set {verbose.%player%} to false
 #Give XP for Mining things
 on mine of any ore:
-    if {verbose.%player%} = true:
+	if {verbose.%player%} = true:
 		stop
 	else:
-		on mine of coal ore:
+		ore is coal ore:
 			increase the player's level progress by {@Coal-XP}
 			message "<gray>You gained <cyan>{@Coal-XP-Display}xp"
 			add 1 to {ore counter.%player%.ore_total_coal}
 			stop
-		on mine of iron ore:
+		ore is iron ore:
 			increase the player's level progress by {@Iron-XP}
 			message "<gray>You gained <cyan>{@Iron-XP-Display}xp <gray>by mining Iron"
 			add 1 to {ore counter.%player%.ore_total_iron}
 			stop
-		on mine of gold ore:
+		ore is gold ore:
 			increase the player's level progress by {@Gold-XP}
 			message "<gray>You gained <cyan>{@Gold-XP-Display}xp <gray>by mining Gold"
 			add 1 to {ore counter.%player%.ore_total_gold}
 			stop
-		on mine of diamond ore:
+		ore is diamond ore:
 			increase the player's level progress by {@Diamond-XP}
 			message "<gray>You gained <cyan>{@Diamond-XP-Display}xp <gray>by mining Diamond"
 			add 1 to {ore counter.%player%.ore_total_diamond}
 			stop
-		on mine of lapis ore:
+		ore is lapis ore:
 			increase the player's level progress by {@Lapis-XP}
 			message "<gray>You gained <cyan>{@Lapis-XP-Display}xp <gray>by mining Lapis"
 			add 1 to {ore counter.%player%.ore_total_lapis}
 			stop
-		on mine of redstone ore:
+		ore is redstone ore:
 			increase the player's level progress by {@Redstone-XP}
 			message "<gray>You gained <cyan>{@Redstone-XP-Display}xp <gray>by mining Redstone"
 			add 1 to {ore counter.%player%.ore_total_redstone}
 			stop
-		on mine of quartz ore:
+		ore is quartz ore:
 			increase the player's level progress by {@Quartz-XP}
 			message "<gray>You gained <cyan>{@Quartz-XP-Display}xp <gray>by mining Quartz"
 			add 1 to {ore counter.%player%.ore_total_quartz}
 			stop
-		on mine of emerald ore:
+		ore is emerald ore:
 			increase the player's level progress by {@Emerald-XP}
 			message "<gray>You gained <cyan>{@Emerald-XP-Display}xp <gray>by mining Emerald"
 			add 1 to {ore counter.%player%.ore_total_emerald}
 			stop
-		on mine of stone:
+		ore is stone:
 			increase the player's level progress by {@Stone-XP}
 			message "<gray>You gained <cyan>{@Stone-XP-Display}xp <gray>by mining Stone"
 			add 1 to {ore counter.%player%.ore_total_stone}
@@ -113,7 +114,7 @@ on mine of any ore:
 #Boosting Protection (Silk Touch Mining)#
 
 on place of any ore:
-	if player has permission: "{OrePlacePermission}:
+	if player has permission "{@OrePlacePermission}":
 		stop
 	else:
 		cancel event

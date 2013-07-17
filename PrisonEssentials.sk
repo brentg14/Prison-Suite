@@ -1,14 +1,39 @@
 options:
+	#Permissions#
+	SetWarp-Permission: prison.setwarp
+	DelWarp-Permission: prison.delwarp
+	View-Warp-Permission: prison.viewwarp
+	Gamemode-Change-Permission: prison.gamemode.self
+	Gamemode-Others-Permission: prison.gamemode.others
+	List-Permission: prison.list
+	Time-Permission: prison.time.set
+	Clear-Inventory-Permission: prison.clearinventory
+	Clear-Others-Inventory-Permission: prison.clearinventory.others
+	Spawn-Items-Permission: prison.give
+	Tp-Permission: prison.tp
+	Tphere-Permission: prison.tphere
+	Invsee-Permission: prsion.invsee
+	Permission-To-Ban: prison.ban
+	Ban-Exempt-Permission: prison.ban.exempt
+	Permission-To-Unban: prison.unban
+	Permission-To-Kick: prison.kick
 	
-	
-	
-	
-	
-	
-	
-	
-
-
+	#Messages#
+	Warp-Create-Message: &6Warp &c%argument 1%&6 set
+	Warp-Remove-Message: &6Removed the warp &c%argument 1%
+	WarpUnknown-Message: &4Unknown Warp! Use /warp to view available warps!
+	Player-Amount-Message: &6There are &c%amount of players%&6 player(s) online
+	Player-List-Message: &6Players Connected &f%all players%
+	Time-Day-Message: &6Time has been changed to &cDay
+	Time-Night-Message: &6Time has been changed to &cNight
+	Time-Midnight-Message: &6Time has been changed to &cMid Night
+	CI-Message: &6Your inventory was cleared by &c%player%
+	Give-Message: &6Giving %argument 2% &c%argument 1%('s)
+	Ban-Message: &c%argument 1%&6 has been banned by &c%player%&6 for the Ban Hammer Has Spoken
+	Unban-Message: &c%argument 1%&6 has been un-banned by &c%player%
+	Tp-Message: &6You have been teleported to &c%argument 2%&6 by &c%player%
+	Tphere-Message: &6You have been teleported to &c%player%
+	Kick-Message: &c%argument 1% has been kicked by %player%!
 
 #*** Essentials Replacement Commands ***#
 command /setwarp <text>:
@@ -32,7 +57,7 @@ command /warp [<text = "list">]:
 			message "&6Warps;&f %{warplist::*}%"
 		if argument 1 isn't "list":
 			if {skentials.warp.%argument 1%.location} is set:
-				teleport player to {skentials.warp.%argument 1%.location}
+				teleport player to {Prison.Warp.%argument 1%.Location}
 			else:
 				message "{@WarpUnknown-Message}"
 
@@ -55,13 +80,13 @@ command /gm <integer> [<player = %player%>]:
 				if argument 1 is 2:
 					set the gamemode of argument 2 to adventure
 command /list:
-	permission: {@List-Permmission}
+	permission: {@List-Permission}
 	trigger:
 		message "{@Player-Amount-Message}"
 		message "{@Player-List-Message}"
 
 command /time [<text = "">] [<text = "">]:
-	permission: {@timeperm}
+	permission: {@Time-Permission}
 	trigger:
 		if argument 1 is "day":
 			if argument 2 is "":
@@ -78,7 +103,7 @@ command /time [<text = "">] [<text = "">]:
 		if argument 1 is "":
 			message "&6The time right now is &c%time of world%"
 command /clearinventory [<player>]:
-	permission: {@clearinventoryperm}
+	permission: {@Clear-Inventory-Permission}
 	aliases: ci
 	trigger:
 		if argument 1 isn't "":
@@ -92,30 +117,30 @@ command /i <item> [<integer>]:
 	description: Spawn a item
 	aliases: item, items, give, get
 	usage: /i [item] (amount)
-	permission: utilities.item
+	permission: {Spawn-Item-Permission}
 	trigger:
 		if argument 2 is not set:
 			give argument 1 to player
 			stop
 		loop argument 2 times:
 			give argument 1 to player
-		message "{@givemessage}"
+		message "{@Give-Message}"
 command /tp <player> [<player>]:
-	permission: {@tpperm}, {@adminperm}
+	permission: {@Tp-Permission}
 	trigger:
 		if argument 2 is "":
 			teleport player to argument 1
-			message "{@tpmessage}"
+			message "{@Tp-Message}"
 		if argument 2 isn't "":
 			teleport argument 1 to argument 2
-			message "{@tpmessage}" to argument 1
+			message "{@Tp-Message}" to argument 1
 
 command /tphere <player>:
-	permission: {@tphereperm}
+	permission: {@Tphere-Permission}
 	aliases: s
 	trigger:
 		teleport argument 1 to the player
-		message "{@tpheremessage}" to argument 1
+		message "{@Tphere-Message}" to argument 1
 	
 command /invsee <player>:
 	permission: {@Invsee-Permission}
