@@ -527,7 +527,7 @@ command /supplies <text> <player>:
 			equip player with 1 {@L2-Boots} of protection 128 named "{@L2-Name_Of_Boots}"
 			equip player with 1 {@L2-Leggings} of protection 128 named "{@L2-Name_Of_Leggings}"
 			add 1 {@tool-NightStick} of knockback 2 named "Night Stick" to player
-			add 64 {@L2-FoodItem} named "{L2-Name_Of_Food)" to player
+			add 64 {@L2-FoodItem} named "{@L2-Name_Of_Food)" to player
 			set {L2.%player%.lastused} to now
 		if argument 1 = "l3":
 			player has permission "{@Guard-L3}"
@@ -542,7 +542,7 @@ command /supplies <text> <player>:
 			equip player with 1 {@L3-Leggings} of protection 128 named "{@L3-Name_Of_Leggings}"
 			add 1 {@tool-MetalDetector} named "Metal Detector" to player
 			add 1 {@tool-NightStick} of knockback 2 named "Night Stick" to player
-			add 64 {@L3-FoodItem} to player
+			add 64 {@L3-FoodItem} named "{@L3-Name-Of-Food}" to player
 			set {L3.%player%.lastused} to now
 		if argument 1 = "l4":
 			player has permission "{@Guard-L4}"
@@ -558,7 +558,7 @@ command /supplies <text> <player>:
 			add 1 {@tool-PepperSpray} named "Pepper Spray" to player
 			add 1 {@tool-MetalDetector} named "Metal Detector" to player
 			add 1 {@tool-NightStick} of knockback 2 named "Night Stick" to player
-			add 64 {@L4-FoodItem} to player
+			add 64 {@L4-FoodItem} named "{@L4-Name-Of-Food}" to player
 			set {L4.%player%.lastused} to now
 		if argument 1 = "Warden":
 			player has permission "{@Warden-Supply}"
@@ -574,7 +574,7 @@ command /supplies <text> <player>:
 			add 1 {@tool-PepperSpray} named "Pepper Spray" to player
 			add 1 {@tool-MetalDetector} named "Metal Detector" to player
 			add 1 {@tool-NightStick} of knockback 2 named "Night Stick" to player
-			add 64 {@Warden-FoodItem} to player
+			add 64 {@Warden-FoodItem} named {@Warden-Name-Of-Food} to player
 			set {Warden.%player%.lastused} to now
 # Command shows Guards online #
 command /guards:
