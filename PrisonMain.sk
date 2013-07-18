@@ -3,73 +3,142 @@
 
 options:
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#Starting Money#
+	Starting-money: 1000
+	Currency-Name: Cigarette
+	Currency-Name-Plural: Cigarettes
 #Permission Configurations#
    #allows a guard to open an iron door with a rightclick of his fist#
-	Open-Irondoor: guard.irondoor
+	Open-Irondoor: prison.irondoor
 
    #Give these nodes to Guards so it will display them as On/Off Duty
-	Display-OnDuty: guard.online
-	Display-OffDuty: guard.offline
+	Display-OnDuty: prison.online
+	Display-OffDuty: prison.offline
 
    #Permissions to use the Guard Tools
-	Metal-Detector-Perm: guard.tools.checker
-	Pepper-Spray-Perm: guard.tools.pepperspray
+	Metal-Detector-Perm: prison.tools.checker
+	Pepper-Spray-Perm: prison.tools.pepperspray
 
    #Perms for broadcasting who hit who messages
-	Hit-Player: guard.player
+	Hit-Player: prison.player
    # ^ Give this one to players
-	Hit-Guard: guard.attacked
+	Hit-Guard: prison.attacked
    # ^ Give this one to guards
 
    #Guard Supply Permissions L1-4
-	Base-Command: guard.supplies
-	Guard-L1: guard.supplies.1
-	Guard-L2: guard.supplies.2
-	Guard-L3: guard.supplies.3
-	Guard-L4: guard.supplies.4
-	Warden-Supply: guard.supplies.Warden
+	Base-Command: prison.supplies
+	Guard-L1: prison.supplies.1
+	Guard-L2: prison.supplies.2
+	Guard-L3: prison.supplies.3
+	Guard-L4: prison.supplies.4
+	Warden-Supply: prison.supplies.Warden
 	L1-CoolDown: 1
 	L2-CoolDown: 1
 	L3-CoolDown: 1
 	L4-CoolDown: 1
 	Warden-CoolDown: 1
+#++++++++++++++++++++++++++++++++++++++++++++++++++Prison Rank Configurations++++++++++++++++++++++++++++++++++++++++++++++++++#
    #Rank-Up Part#
+	Rank1-Permission: prison.rank.1
 	Rank1-Name: F
 	Rank1: <gold>[<white>F<gold>]
+
    #Rank2 Config#
+	Rank2-Permission: prison.rank.2
 	Rank2-Name: E
 	Rank2: <gold>[<yellow>E<gold>]
 	Rank2-Cost: 40000
 	Rank2-Promo-Message: <yellow>Congratulations! You've Been Sentenced to the<green> E <yellow>Cell Block. 
 	Rank2-Denied-Message: <light red>Sorry you don't have enough cigarettes yet for this rank.
+
    #Rank3 Config#
+	Rank3-Permission: prison.rank.3
 	Rank3-Name: D
 	Rank3: <gold>[<pink>D<gold>]
 	Rank3-Cost: 80000
 	Rank3-Promo-Message: <yellow>Congratulations! You've Been Sentenced to the<green> D <yellow>Cell Block. 
 	Rank3-Denied-Message: <light red>Sorry you don't have enough cigarettes yet for this rank.
+
    #Rank4 Config#
+	Rank4-Permission: prison.rank.4
 	Rank4-Name: C
 	Rank4: <gold>[<light red>C<gold>]
 	Rank4-Cost: 1200000
 	Rank4-Promo-Message: <yellow>Congratulations! You've Been Sentenced to the<green> C <yellow>Cell Block. 
 	Rank4-Denied-Message: <light red>Sorry you don't have enough cigarettes yet for this rank.
+
    #Rank5 Config#
+	Rank5-Permission: prison.rank.5
 	Rank5-Name: B
 	Rank5: <gold>[<aqua>B<gold>]
 	Rank5-Cost: 1600000
 	Rank5-Promo-Message: <yellow>Congratulations! You've Been Sentenced to the<green> B <yellow>Cell Block. 
 	Rank5-Denied-Message: <light red>Sorry you don't have enough cigarettes yet for this rank.
+
    #Rank6 Config#
+	Rank6-Permission: prison.rank.6
 	Rank6-Name: A
 	Rank6: <gold>[<light green>A<gold>]
 	Rank6-Cost: 200000
-	Rank6-Promo-Message: <yellow>Congratulations! You've Been Sentenced to the<green> A <yellow>Cell Block. 
+	Rank6-Promo-Message: <yellow>Congratulations! You've Been Promoted To Guard <green>L2
 	Rank6-Denied-Message: <light red>Sorry you don't have enough cigarettes yet for this rank.
+
    #Give the next permission to guards
-	This-Is-A-Guard: guard.guard
-	
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+	This-Is-A-Guard: prison.guard
+#++++++++++++++++++++++++++++++++++++++++++++++++++Guard Rank Configurations++++++++++++++++++++++++++++++++++++++++++++++++++#
+	Guard-Timer: prison.guard
+
+   #Guard1 Config#
+	Guard1-Permission: prison.rank.guard.1
+	Guard1: &6[&7Guard &11&6]
+	Guard1-Name: GuardL1
+
+   #Guard2 Config#
+	Guard2-Permission: prison.rank.guard.2
+	Guard2: &6[&7Guard &22&6]
+	Guard2-Name: GuardL2
+	Guard2-Time: 2
+	Guard2-Promo-Message: <yellow>Congratulations! You've Been Promoted To Guard <green>L2
+	Guard2-Denied-Message: <light red>Sorry you haven't guarded the prison long enough to be promoted yet.
+
+   #Guard3 Config#
+	Guard3-Permission: prison.rank.guard.3
+	Guard3: &6[&7Guard &33&6]
+	Guard3-Name: GuardL3
+	Guard3-Time: 3
+	Guard3-Promo-Message: <yellow>Congratulations! You've Been Promoted To Guard <green>L3
+	Guard3-Denied-Message: <light red>Sorry you haven't guarded the prison long enough to be promoted yet.
+
+   #Guard4 Config#
+	Guard4-Permission: prison.rank.guard.4
+	Guard4: &6[&7Guard &44&6]
+	Guard4-Name: GuardL4
+	Guard4-Time: 4
+	Guard4-Promo-Message: <yellow>Congratulations! You've Been Promoted To Guard <green>L4
+	Guard4-Denied-Message: <light red>Sorry you haven't guarded the prison long enough to be promoted yet.
+
+   #Guard5 Config#
+	Guard5-Permission: prison.rank.guard.5
+	Guard5: &6[&5Warden&6]
+	Guard5-Name: Warden
+	Guard5-Time: 5
+	Guard5-Promo-Message: <yellow>Congratulations! You've Been Promoted To Guard <green>Warden
+	Guard5-Denied-Message: <light red>Sorry you haven't guarded the prison long enough to be promoted yet.
+
+   #Guard6 Config#
+	Guard6-Permission: prison.rank.guard.6
+	Guard6: &6[&7Guard &66&6]
+	Guard6-Name: nothing
+	Guard6-Time: 6
+	Guard6-Promo-Message: <yellow>Congratulations! You've Been Promoted To Guard <green>L6
+	Guard6-Denied-Message: <light red>Sorry you haven't guarded the prison long enough to be promoted yet.
+
+   #Owner Config#
+	Owner-Permission: prison.rank.Owner
+	Owner: &6[&8Owner&6]
+	Owner-Name: Owner
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #Configurable Messages!#
    #If using PrisonChat i suggest using this welcome message and disableing the essentials one#
 	Configurable-Welcome-Message: Welcome to the server %player%
@@ -185,13 +254,24 @@ variables:
 	{money.%player%} = 0
 
 on first join:
-	set {money.%player%} to {@Starting money}
-	execute console command "/"
+	set {money.%player%} to {@Starting-money}
 
-	
+command /balance:
+	usage: /balance
+	description: Shows your balance
+	aliases: bal, money
+	trigger:
+		if {money.%player%} is equal to 1:
+			send "<light red>You have <light green>%{money.%player%}% <light red>{@Currency-Name}"
+			stop
+		if {money.%player%} is greater than 1:
+			send "<light red>You have <light green>%{money.%player%}% <light red>{@Currency-Name-Plural}"
+			stop
+
 #First join Rank#
 variables:
 	{rank.%player%.track} = 1
+	{time.%player%} = 0
 
 on first join:
 	set player's display name to "{@Rank1} <reset>%player%"
@@ -245,17 +325,19 @@ on damage:
 	attacker has permission "{@Hit-Guard}"
 	victim has permission "{@Hit-Player}"
 	send "{@Player-Damage}" to victim
-
+	
+#Defines how fast a guard ranks up#
+every 1 minutes:
+	loop all players:
+		loop-player has permission "{@This-Is-A-Guard}"
+		add 1 to {time.%loop-player%}
+		stop
+command /guard time:
+	permission: {@Guard-Timer}
+	trigger:
+		send "You have guarded this prison for <light green>%{time.%player%}% <reset>minutes"
 # Commands Start Here #
-command /points:
-	trigger:
-		send "<red>You have<green> %{money.%player%}%" to player
-command /givepoint:
-	trigger:
-		add 40000 to {money.%player%}
-command /reset:
-	trigger:
-		set {rank.%player%.track} to 1
+# This section deals with both the ranking for Prisoners and Guards #
 command /rankup:
 	trigger:
 		if {rank.%player%.track} = 1:
@@ -308,7 +390,111 @@ command /rankup:
 				stop
 			else:
 				send "{@Rank6-Denied-Message}"
+		if {rank.%player%.track} = 7:
+			if {time.%player%} is greater than or equal to {@Guard2-Time}:
+				set {rank.%player%.track} to 8
+				set player's display name to "{@Guard2} <reset>%player%"
+				send "{@Guard2-Promo-Message}" to player
+				remove {@Guard2-Time} from {time.%player%}
+				execute console command "/pex user %player% group set {@Guard2-Name}"
+				stop
+			else:
+				send "{@Guard2-Denied-Message}"
+		if {rank.%player%.track} = 8:
+			if {time.%player%} is greater than or equal to {@Guard3-Time}:
+				set {rank.%player%.track} to 9
+				set player's display name to "{@Guard3} <reset>%player%"
+				send "{@Guard3-Promo-Message}" to player
+				remove {@Guard3-Time} from {time.%player%}
+				execute console command "/pex user %player% group set {@Guard3-Name}"
+				stop
+			else:
+				send "{@Guard3-Denied-Message}"
+		if {rank.%player%.track} = 9:
+			if {time.%player%} is greater than or equal to {@Guard4-Time}:
+				set {rank.%player%.track} to 10
+				set player's display name to "{@Guard4} <reset>%player%"
+				send "{@Guard4-Promo-Message}" to player
+				remove {@Guard4-Time} from {time.%player%}
+				execute console command "/pex user %player% group set {@Guard4-Name}"
+				stop
+			else:
+				send "{@Guard4-Denied-Message}"
+		if {rank.%player%.track} = 10:
+			if {time.%player%} is greater than or equal to {@Guard5-Time}:
+				set {rank.%player%.track} to 11
+				set player's display name to "{@Guard5} <reset>%player%"
+				send "{@Guard5-Promo-Message}" to player
+				remove {@Guard5-Time} from {time.%player%}
+				execute console command "/pex user %player% group set {@Guard5-Name}"
+				stop
+			else:
+				send "{@Guard5-Denied-Message}"
+		if {rank.%player%.track} = 11:
+			if {time.%player%} is greater than or equal to {@Guard6-Time}:
+				set {rank.%player%.track} to 12
+				set player's display name to "{@Guard6} <reset>%player%"
+				send "{@Guard6-Promo-Message}" to player
+				remove {@Guard6-Time} from {time.%player%}
+				execute console command "/pex user %player% group set {@Guard6-Name}"
+				stop
+			else:
+				send "{@Guard6-Denied-Message}"
 
+#If you need to change the person's rank manually, this section will correct any variables that may be wrong for ranking up!###
+on chat:
+	if player has permission "{@Rank1-Permission}":
+		set player's display name to "{@Rank1} <reset>%player%"
+		set {rank.%player%.track} to 1
+		stop
+	if player has permission "{@Rank2-Permission}":
+		set player's display name to "{@Rank2} <reset>%player%"
+		set {rank.%player%.track} to 2
+		stop
+	if player has permission "{@Rank3-Permission}":
+		set player's display name to "{@Rank3} <reset>%player%"
+		set {rank.%player%.track} to 3
+		stop
+	if player has permission "{@Rank4-Permission}":
+		set player's display name to "{@Rank4} <reset>%player%"
+		set {rank.%player%.track} to 4
+		stop
+	if player has permission "{@Rank5-Permission}":
+		set player's display name to "{@Rank5} <reset>%player%"
+		set {rank.%player%.track} to 5
+		stop
+	if player has permission "{@Rank6-Permission}":
+		set player's display name to "{@Rank6} <reset>%player%"
+		set {rank.%player%.track} to 6
+		stop
+	if player has permission "{@Guard1-Permission}":
+		set player's display name to "{@Guard1} <reset>%player%"
+		set {rank.%player%.track} to 7
+		stop
+	if player has permission "{@Guard2-Permission}":
+		set player's display name to "{@Guard2} <reset>%player%"
+		set {rank.%player%.track} to 8
+		stop
+	if player has permission "{@Guard3-Permission}":
+		set player's display name to "{@Guard3} <reset>%player%"
+		set {rank.%player%.track} to 9
+		stop
+	if player has permission "{@Guard4-Permission}":
+		set player's display name to "{@Guard4} <reset>%player%"
+		set {rank.%player%.track} to 10
+		stop
+	if player has permission "{@Guard5-Permission}":
+		set player's display name to "{@Guard5} <reset>%player%"
+		set {rank.%player%.track} to 11
+		stop
+	if player has permission "{@Guard6-Permission}":
+		set player's display name to "{@Guard6} <reset>%player%"
+		set {rank.%player%.track} to 12
+		stop
+	if player has permission "{@Owner-Permission}":
+		set player's display name to "{@Owner} <reset>%player%"
+		stop
+# This Section is for the many supply kits available #
 command /supplies <text> <player>:
 	description: gives guards a kit of supplies
 	usage: /supplies <L1, L2, L3, L4, Warden>
@@ -390,7 +576,7 @@ command /supplies <text> <player>:
 			add 1 {@tool-NightStick} of knockback 2 named "Night Stick" to player
 			add 64 {@Warden-FoodItem} to player
 			set {Warden.%player%.lastused} to now
-
+# Command shows Guards online #
 command /guards:
 	description: Shows online Guards
 	trigger:

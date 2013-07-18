@@ -50,6 +50,11 @@ command /mined:
 		message "<yellow>You have mined <white>%{ore counter.%player%.ore_total_quartz}% <white>Quartz Ore<yellow> in total!"
 		message "<yellow>You have mined <white>%{ore counter.%player%.ore_total_stone}% <light grey>Stone<yellow> in total!"
 		message "----------------------------------------------"
+variables:
+	{verbose.%player%} = 0
+
+on join:
+	set {verbose.%player%} to 0
 
 command /verbose <text>:
 	executable by: players
@@ -57,59 +62,105 @@ command /verbose <text>:
 	description: Turns Xp Gain Messages On/Off
 	trigger:
 		if argument 1 = "on":
-			set {verbose.%player%} to true
+			set {verbose.%player%} to 1
+			send "<light red>Xp gain messages turned off"
 		if argument 1 = "off":
-			set {verbose.%player%} to false
+			set {verbose.%player%} to 0
+			send "<light green>Xp gain messages turned on"
 #Give XP for Mining things
-on mine of any ore:
-	if {verbose.%player%} = true:
+on mine of coal ore:
+	set block to air
+	cancel event
+	drop 3 coal 
+	increase the player's level progress by {@Coal-XP}
+	add 1 to {ore counter.%player%.ore_total_coal}
+	if {verbose.%player%} = 0:
+		message "<gray>You gained <cyan>{@Coal-XP-Display}xp <gray>by mining coal" to player
 		stop
-	else:
-		ore is coal ore:
-			increase the player's level progress by {@Coal-XP}
-			message "<gray>You gained <cyan>{@Coal-XP-Display}xp"
-			add 1 to {ore counter.%player%.ore_total_coal}
-			stop
-		ore is iron ore:
-			increase the player's level progress by {@Iron-XP}
-			message "<gray>You gained <cyan>{@Iron-XP-Display}xp <gray>by mining Iron"
-			add 1 to {ore counter.%player%.ore_total_iron}
-			stop
-		ore is gold ore:
-			increase the player's level progress by {@Gold-XP}
-			message "<gray>You gained <cyan>{@Gold-XP-Display}xp <gray>by mining Gold"
-			add 1 to {ore counter.%player%.ore_total_gold}
-			stop
-		ore is diamond ore:
-			increase the player's level progress by {@Diamond-XP}
-			message "<gray>You gained <cyan>{@Diamond-XP-Display}xp <gray>by mining Diamond"
-			add 1 to {ore counter.%player%.ore_total_diamond}
-			stop
-		ore is lapis ore:
-			increase the player's level progress by {@Lapis-XP}
-			message "<gray>You gained <cyan>{@Lapis-XP-Display}xp <gray>by mining Lapis"
-			add 1 to {ore counter.%player%.ore_total_lapis}
-			stop
-		ore is redstone ore:
-			increase the player's level progress by {@Redstone-XP}
-			message "<gray>You gained <cyan>{@Redstone-XP-Display}xp <gray>by mining Redstone"
-			add 1 to {ore counter.%player%.ore_total_redstone}
-			stop
-		ore is quartz ore:
-			increase the player's level progress by {@Quartz-XP}
-			message "<gray>You gained <cyan>{@Quartz-XP-Display}xp <gray>by mining Quartz"
-			add 1 to {ore counter.%player%.ore_total_quartz}
-			stop
-		ore is emerald ore:
-			increase the player's level progress by {@Emerald-XP}
-			message "<gray>You gained <cyan>{@Emerald-XP-Display}xp <gray>by mining Emerald"
-			add 1 to {ore counter.%player%.ore_total_emerald}
-			stop
-		ore is stone:
-			increase the player's level progress by {@Stone-XP}
-			message "<gray>You gained <cyan>{@Stone-XP-Display}xp <gray>by mining Stone"
-			add 1 to {ore counter.%player%.ore_total_stone}
-			stop
+	if {verbose.%player%} = 1:
+		stop
+on mine of iron ore:
+	add 1 to {ore counter.%player%.ore_total_iron}
+	increase the player's level progress by {@Iron-XP}
+	if {verbose.%player%} = 0:
+		message "<gray>You gained <cyan>{@Iron-XP-Display}xp <gray>by mining Iron" to player
+		stop
+	if {verbose.%player%} = 1:
+		stop
+on mine of gold ore:
+	set block to air
+	cancel event
+	drop 2 gold ingot 
+	add 1 to {ore counter.%player%.ore_total_gold}
+	increase the player's level progress by {@Gold-XP}
+	if {verbose.%player%} = 0:
+		message "<gray>You gained <cyan>{@Gold-XP-Display}xp <gray>by mining Gold" to player
+		stop
+	if {verbose.%player%} = 1:
+		stop
+on mine of diamond ore:
+	set block to air
+	cancel event
+	drop 1 diamond 
+	add 1 to {ore counter.%player%.ore_total_diamond}
+	increase the player's level progress by {@Diamond-XP}
+	if {verbose.%player%} = 0:
+		message "<gray>You gained <cyan>{@Diamond-XP-Display}xp <gray>by mining Diamond" to player
+		stop
+	if {verbose.%player%} = 1:
+		stop
+on mine of lapis ore:
+	set block to air
+	cancel event
+	drop 4 lapis 
+	add 1 to {ore counter.%player%.ore_total_lapis}
+	increase the player's level progress by {@Lapis-XP}
+	if {verbose.%player%} = 0:
+		message "<gray>You gained <cyan>{@Lapis-XP-Display}xp <gray>by mining Lapis" to player
+		stop
+	if {verbose.%player%} = 1:
+		stop
+on mine of redstone ore:
+	set block to air
+	cancel event
+	drop 5 redstone 
+	add 1 to {ore counter.%player%.ore_total_redstone}
+	increase the player's level progress by {@Redstone-XP}
+	if {verbose.%player%} = 0:
+		message "<gray>You gained <cyan>{@Redstone-XP-Display}xp <gray>by mining Redstone" to player
+		stop
+	if {verbose.%player%} = 1:
+		stop
+on mine of quartz ore:
+	set block to air
+	cancel event
+	drop 2 quartz 
+	add 1 to {ore counter.%player%.ore_total_quartz}
+	increase the player's level progress by {@Quartz-XP}
+	if {verbose.%player%} = 0:
+		message "<gray>You gained <cyan>{@Quartz-XP-Display}xp <gray>by mining Quartz" to player
+		stop
+	if {verbose.%player%} = 1:
+		stop
+on mine of emerald ore:
+	set block to air
+	cancel event
+	drop 1 emerald 
+	add 1 to {ore counter.%player%.ore_total_emerald}
+	increase the player's level progress by {@Emerald-XP}
+	if {verbose.%player%} = 0:
+		message "<gray>You gained <cyan>{@Emerald-XP-Display}xp <gray>by mining Emerald" to player
+		stop
+	if {verbose.%player%} = 1:
+		stop
+on mine of stone:
+	add 1 to {ore counter.%player%.ore_total_stone}
+	increase the player's level progress by {@Stone-XP}
+	if {verbose.%player%} = 0:
+		message "<gray>You gained <cyan>{@Stone-XP-Display}xp <gray>by mining Stone" to player
+		stop
+	if {verbose.%player%} = 1:
+		stop
 
 #Boosting Protection (Silk Touch Mining)#
 

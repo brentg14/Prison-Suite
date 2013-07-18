@@ -9,7 +9,7 @@ options:
 	Time-Permission: prison.time.set
 	Clear-Inventory-Permission: prison.clearinventory
 	Clear-Others-Inventory-Permission: prison.clearinventory.others
-	Spawn-Items-Permission: prison.give
+	Spawn-Item-Permission: prison.give
 	Tp-Permission: prison.tp
 	Tphere-Permission: prison.tphere
 	Invsee-Permission: prsion.invsee
@@ -129,7 +129,7 @@ command /i <item> [<integer>]:
 	description: Spawn a item
 	aliases: item, items, give, get
 	usage: /i [item] (amount)
-	permission: {Spawn-Item-Permission}
+	permission: {@Spawn-Item-Permission}
 	trigger:
 		if argument 2 is not set:
 			give argument 1 to player
@@ -164,19 +164,12 @@ variables:
 command /ban <player> <text>:
 	permission: {@Permission-To-Ban}
 	trigger:
-		set {Custom-Ban-Message} to argument 2
 		if argument 1 has permission "{@Ban-Exempt-Permission}":
 			message "&cYou can not ban that person"
 			stop
 		if argument 1 doesn't have permission "{@Ban-Exempt-Permission}":
-			if argument 2 is "":
-				broadcast "{@Ban-Message}"
-				ban argument 1
-				stop
-			if argument 2 isn't "":
-				broadcast "argument 2 <red>has been banned for (Custom-Ban-Message}"
-				ban argument 1
-				stop
+			broadcast "{@Ban-Message}"
+			ban argument 1
 
 command /unban <offline player>:
 	permission: {@Permission-To-Unban}

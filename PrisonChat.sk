@@ -9,12 +9,14 @@ options:
 	Permission-To-Unmute: prison.unmute
 	Msg-Permission: prison.msg
 	Mute-Message: <red>You have been Muted
-	Mute-Message-Muter:
+	Mute-Message-Muter: <light red>%argument 1% has been muted
 	Muted-Message: <light red>You are Muted
 	Unmute-Message: <green>You have been unmuted
-	Mute-Message-Unmuter:
+	Unmute-Message-Unmuter: <light red>%argument 1% has been unmuted
 	Message-Color: white
 	Prisoner-Prefix-Layout: <gold><<light gray>Prisoner <dark gray>##%{num.%player%.number}%<gold>>
+#Auto Broadcaster Config #
+#Timer is in Seconds#
 
 #=======================================================ONLY ENABLE IF YOU KNOW WHAT YOU ARE DOING=======================================================#
 variables:
@@ -60,12 +62,13 @@ command /unmute <player>:
 	trigger:
 		set {Prison.mute.%argument 1%} to false
 		send "{@Unmute-Message}" to argument 1
-		send "{@Unmate-Message-Unmuter}" to player
+		send "{@Unmute-Message-Unmuter}" to player
 
 command /msg <player> <text>:
 	permission: {@Msg-Permission}
 	aliases: tell, message
 	usage: &c/msg [Player] [Message]
 	trigger:
-		send "<light blue>[%player%<red> -> You] <{@Message-Color}>%argument 2%" to argument 1
-		send "<light blue>[%You -> %argument 1%] <@{Message-Color}>%argument 2%" to player
+		send "<light blue>[<gold>%player% -> You<light blue>] <{@Message-Color}>%argument 2%" to argument 1
+		send "<light blue>[<gold>You -> %argument 1%<light blue>] <{@Message-Color}>%argument 2%" to player
+#Auto Broadcaster#
