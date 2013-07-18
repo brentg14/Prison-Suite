@@ -180,7 +180,15 @@ options:
  
 #__________________________________________________END OF CONFIG SECTION_________________________________________________________#
 #================================================================================================================================#
+#Economy#
+variables:
+	{money.%player%} = 0
 
+on first join:
+	set {money.%player%} to {@Starting money}
+	execute console command "/"
+
+	
 #First join Rank#
 variables:
 	{rank.%player%.track} = 1
@@ -239,8 +247,6 @@ on damage:
 	send "{@Player-Damage}" to victim
 
 # Commands Start Here #
-variables:
-	{money.%player%} = 0
 command /points:
 	trigger:
 		send "<red>You have<green> %{money.%player%}%" to player
@@ -303,7 +309,7 @@ command /rankup:
 			else:
 				send "{@Rank6-Denied-Message}"
 
-command /supplies <text>:
+command /supplies <text> <player>:
 	description: gives guards a kit of supplies
 	usage: /supplies <L1, L2, L3, L4, Warden>
 	permission: {@Base-Command}

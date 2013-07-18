@@ -21,7 +21,7 @@ options:
 #	{17} = wither
 #	{2} = slowness
 #Names Of Drugs#
-
+#NOTE: Only works with 1 effect per positive/negative. Will fix soon!#
 	Vodka: water bottle
 	Vodka-Positive-Effect: {1}
 	Vodka-Negative-Effect: {7}

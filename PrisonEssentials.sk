@@ -37,6 +37,8 @@ options:
 
 #*** Essentials Replacement Commands ***#
 command /setwarp <text>:
+	description: Use to set a warp at your location
+	usage: /setwarp <name>
 	permission: {@SetWarp-Permission}
 	trigger:
 		set {Prison.Warp.%argument 1%.Location} to location of the player
@@ -44,6 +46,8 @@ command /setwarp <text>:
 		add argument 1 to {warplist::*}
 
 command /delwarp <text>:
+	description: Use to delete a set warp
+	usage: /delwarp <name>
 	permission: {@DelWarp-Permission}
 	trigger:
 		delete {Prison.Warp.%argument 1%.Location}
@@ -51,6 +55,8 @@ command /delwarp <text>:
 		remove argument 1 from {warplist::*}
 
 command /warp [<text = "list">]:
+	description: Warp to a set warp
+	usage: /warp <name>
 	permission: {@View-Warp-Permission}
 	trigger:
 		if argument 1 is "list":
@@ -62,6 +68,8 @@ command /warp [<text = "list">]:
 				message "{@WarpUnknown-Message}"
 
 command /gm <integer> [<player = %player%>]:
+	description: Use to change the gamemode of yourself or others
+	usage: /gm <1|2|3> [playername]
 	permission: {@Gamemode-Change-Permission}
 	trigger:
 		if argument 2 is "%player%":
@@ -81,11 +89,15 @@ command /gm <integer> [<player = %player%>]:
 					set the gamemode of argument 2 to adventure
 command /list:
 	permission: {@List-Permission}
+	description: Shows a List of Players Online
+	usage: /list
 	trigger:
 		message "{@Player-Amount-Message}"
 		message "{@Player-List-Message}"
 
 command /time [<text = "">] [<text = "">]:
+	description: Set the time in a given world
+	usage: /time [day|night|midnight]
 	permission: {@Time-Permission}
 	trigger:
 		if argument 1 is "day":
@@ -171,6 +183,7 @@ command /unban <offline player>:
 	trigger:
 		unban argument 1
 		broadcast "{@Unban-Message}"
+
 command /kick <player>:
 	permission: {@Permission-To-Kick}
 	trigger:

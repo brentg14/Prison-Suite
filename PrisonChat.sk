@@ -8,10 +8,13 @@ options:
 	Mute-Override-Permission: prison.mute.bypass
 	Permission-To-Unmute: prison.unmute
 	Msg-Permission: prison.msg
-	Mute-Message: <red>You have been muted
+	Mute-Message: <red>You have been Muted
+	Mute-Message-Muter:
+	Muted-Message: <light red>You are Muted
 	Unmute-Message: <green>You have been unmuted
-	
-
+	Mute-Message-Unmuter:
+	Message-Color: white
+	Prisoner-Prefix-Layout: <gold><<light gray>Prisoner <dark gray>##%{num.%player%.number}%<gold>>
 
 #=======================================================ONLY ENABLE IF YOU KNOW WHAT YOU ARE DOING=======================================================#
 variables:
@@ -25,25 +28,19 @@ on first join:
 on chat:
 	if player has permission "{@Prisoner-Chat-Permission}":
 		cancel event
-		broadcast "<gold><<light gray>Prisoner <dark gray>##%{num.%player%.number}%<gold>> %player's display name%: <white>%message%" to the player's world
+		broadcast "{@Prisoner-Prefix-Layout} %player's display name%: <{@Message-Color}>%message%" to the player's world
 	if player has permission "{@Guard-Chat-Permission}":
 		cancel event
-		broadcast "%player's display name%: <white>%message%" to the player's world
+		broadcast "%player's display name%: <{@Message-Color}>%message%" to the player's world
 #=======================================================ONLY ENABLE IF YOU KNOW WHAT YOU ARE DOING=======================================================#
 #Muting and Other Chat-Related Commands#
 on chat:
 	if player has permission "{@Mute-Override-Permission}":
 		stop
 	else:
-		if {chat.allowed} is false:
-			cancel event
-			send "<light red>Chat is DISABLED" to the player
-			stop
-		if {chat.allowed} is true:
-			stop
 		if {Prison.mute.%player%} is true:
 			cancel event
-			send "{Mute-Message}"
+			send "{@Muted-Message}"
 
 command /broadcast <text>:
 	permission: {@Broadcast-Permission}
@@ -55,17 +52,20 @@ command /mute <player>:
 	permission: {@Permission-To-Mute}
 	trigger:
 		set {Prison.mute.%argument 1%} to true
-		broadcast "{@Mute-Message}"
+		send "{@Mute-Message}" to argument 1
+		send "{@Mute-Message-Muter}" to player
 
 command /unmute <player>:
 	permission: {@Permission-To-Unmute}
 	trigger:
 		set {Prison.mute.%argument 1%} to false
-		broadcast "{@Unmute-Message}"
+		send "{@Unmute-Message}" to argument 1
+		send "{@Unmate-Message-Unmuter}" to player
 
 command /msg <player> <text>:
 	permission: {@Msg-Permission}
 	aliases: tell, message
 	usage: &c/msg [Player] [Message]
 	trigger:
-		message "<blue>[%player%<red> to You] <yellow>%argument 2%" to argument 1
+		send "<light blue>[%player%<red> -> You] <{@Message-Color}>%argument 2%" to argument 1
+		send "<light blue>[%You -> %argument 1%] <@{Message-Color}>%argument 2%" to player
